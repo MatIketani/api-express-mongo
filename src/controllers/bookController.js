@@ -1,10 +1,8 @@
 const express = require('express');
 const { paperFormats } = require('puppeteer-core');
 const Book = require('../models/book');
-const router = express.Router();
 
-
-router.post('/create', async (req, res)=>{
+const createRoute = ('/create', async (req, res)=>{
     try {
         const book = await Book.create(req.body);
 
@@ -14,7 +12,7 @@ router.post('/create', async (req, res)=>{
     }
 });
 
-router.get('/', async(req,res)=>{
+const getRoute = ('/', async(req,res)=>{
     try{
         const book = await Book.find();
 
@@ -24,7 +22,7 @@ router.get('/', async(req,res)=>{
     }
 });
 
-router.delete('/delete', async(req,res)=>{
+const deleteRoute = ('/delete', async(req,res)=>{
     try{
         const book = await Book.findOneAndDelete(req.body)
 
@@ -34,7 +32,7 @@ router.delete('/delete', async(req,res)=>{
     }
 });
 
-router.post('/update/:id', async(req,res)=>{
+const updateRoute = ('/update/:id', async(req,res)=>{
     var id = req.params.id
 
     try{
@@ -46,4 +44,4 @@ router.post('/update/:id', async(req,res)=>{
     }
 })
 
-module.exports = app => app.use('/book', router)
+module.exports = { createRoute, getRoute, deleteRoute, updateRoute }

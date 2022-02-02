@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
-require('./controllers/bookController')(app);
+require('./routes/bookRoutes')(app);
 require('./middlewares/localOnly')(app);
 
 app.listen(80,()=>{
