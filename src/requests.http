@@ -1,0 +1,6 @@
+POST http://127.0.0.1/book/create HTTP/1.1
+
+{
+    "name": "1984",
+    "author": "George Orwell"
+}
