@@ -9,4 +9,4 @@ router.delete('/delete', controller.deleteRoute)
 
 router.post('/delete/:id', controller.updateRoute)
 
-module.exports = app => app.use(router)
+module.exports = app => app.use('/book', router)
