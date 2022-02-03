@@ -3,10 +3,12 @@ const morgan = require('morgan')
 
 const app = express();
 
+// Enable middlewares.
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
+//Pass app variable to another files.
 require('./routes/bookRoutes')(app);
 require('./middlewares/localOnly')(app);
 
