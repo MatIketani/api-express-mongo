@@ -1,5 +1,4 @@
 const express = require('express');
-const { paperFormats } = require('puppeteer-core');
 const Book = require('../models/book');
 
 const createRoute = ('/create', async (req, res)=>{
